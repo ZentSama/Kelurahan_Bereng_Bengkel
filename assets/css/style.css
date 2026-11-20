@@ -401,15 +401,13 @@ h1 {
   margin: 0;
 }
 .school-cover {
+  position: relative;
   height: 190px;
   background: linear-gradient(135deg, #dcefe1, #f6f9f5);
-  display: grid;
-  place-items: center;
-  color: var(--green);
-  font-size: 48px;
-  position: relative;
+  overflow: hidden;
 }
 .school-cover img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -570,6 +568,159 @@ h1 {
   font-size: 11px;
   margin-top: 6px;
 }
+.hours-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--green2), var(--green));
+  color: #fff;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+.hours-panel::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.14;
+  top: -130px;
+  right: -110px;
+}
+.hours-panel::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 2px solid #ffffff2e;
+  border-radius: 50%;
+  bottom: -120px;
+  left: -70px;
+}
+.hours-panel > * {
+  position: relative;
+}
+.hours-intro {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.hours-icon {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border-radius: 16px;
+  background: #ffffff1f;
+  border: 1px solid #ffffff2e;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+.hours-intro h3 {
+  margin: 0 0 3px;
+  font-size: 18px;
+}
+.hours-intro p {
+  margin: 0;
+  color: #d7eadc;
+  font-size: 13px;
+}
+.hours-list {
+  margin-top: 26px;
+  display: grid;
+  gap: 12px;
+}
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 18px;
+  border-radius: 14px;
+  background: #ffffff14;
+  border: 1px solid #ffffff24;
+  font-size: 14px;
+}
+.hours-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+.hours-row strong {
+  font-weight: 800;
+  color: #ffe7b3;
+}
+.hours-row.closed {
+  opacity: 0.82;
+}
+.hours-row.closed strong {
+  color: #ffd9d9;
+}
+.day-icon {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 8px;
+  background: #ffffff1f;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+.news-card {
+  display: flex;
+  flex-direction: column;
+}
+.news-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.news-card h3 {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 12px 0 8px;
+}
+.news-card h3 a {
+  color: inherit;
+}
+.news-card h3 a:hover {
+  color: var(--green);
+}
+.news-meta {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.news-card p {
+  margin-bottom: 14px;
+}
+.news-card .arrow-link {
+  margin-top: auto;
+}
+.news-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 99px;
+  background: #fff4dc;
+  color: #8a6520;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.news-all {
+  margin-top: 24px;
+  text-align: center;
+}
 @media (max-width: 850px) {
   .navlinks,
   .nav-cta {
@@ -592,7 +743,8 @@ h1 {
     min-height: 300px;
   }
   .grid.three,
-  .person-grid {
+  .person-grid,
+  .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .detail-layout {
@@ -621,6 +773,7 @@ h1 {
   .grid.three,
   .grid.two,
   .person-grid,
+  .news-grid,
   .stats,
   .footer-grid {
     grid-template-columns: 1fr;

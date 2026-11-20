@@ -22,11 +22,12 @@ document.querySelectorAll("[data-carousel]").forEach((c) => {
     const cap = c.querySelector(".gallery-caption");
     if (cap) cap.textContent = `Foto ${n + 1} dari ${imgs.length}`;
   };
-  c.querySelector("[data-prev]")?.addEventListener("click", () => {
+  const controls = c.nextElementSibling;
+  controls?.querySelector("[data-prev]")?.addEventListener("click", () => {
     n = (n - 1 + imgs.length) % imgs.length;
     show();
   });
-  c.querySelector("[data-next]")?.addEventListener("click", () => {
+  controls?.querySelector("[data-next]")?.addEventListener("click", () => {
     n = (n + 1) % imgs.length;
     show();
   });
